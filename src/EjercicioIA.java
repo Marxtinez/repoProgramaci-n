@@ -7,14 +7,30 @@ El programa tendrá al menos tres métodos:
     Un método llamado muestraEstadisticas, que recibe las jugadas realizadas en cada ronda y muestra:
             El % de partidas ganadas por cada jugador y empates
             El % ordenado de las jugadas seleccionadas (piedra, papel o tijera)*/
+import java.util.Scanner;
+import java.util.Random;
 public class EjercicioIA {
     public static void main(String[] args){
+        Scanner inputValue = new Scanner(System.in);
+
+        System.out.print("Introduce tu jugada:");
+        System.out.println(" - 0 --> piedra.");
+        System.out.println(" - 1 --> papel.");
+        System.out.println(" - 2 --> tijera.");
+        int jjugador = inputValue.nextInt();
+        int jia = jugadaIA();
+
+        String resultado = calculaGanador(jjugador, jia);
+
+
 
     }
-    public static String jugadaIA(){ //aleatorizarla
-
+    public static int jugadaIA(){ //aleatorizarla
+        int jia = (int) (Math.random() * 3);
+        return jia;
     }
-    public static String calculaGanador(String jjugador, String jia){
+    public static String calculaGanador(int jjugador, int jia){
+
 
     }
     public static String muestraEstadisticas(int ronda, String jjugador, String jia){
