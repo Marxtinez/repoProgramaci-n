@@ -10,17 +10,25 @@ El programa tendrá al menos tres métodos:
 import java.util.Scanner;
 import java.util.Random;
 public class EjercicioIA {
+    static int ronda = 0,
+            cPapelIA = 0, cPiedraIA = 0, cTijeraIA = 0,
+            cPapelJ = 0, cPiedraJ = 0, cTijeraJ = 0,
+            cGanaIA = 0, cGanaJ = 0, cEmpate = 0;
+
     public static void main(String[] args){
         Scanner inputValue = new Scanner(System.in);
+        int jjugador = 0;
 
-        System.out.print("Introduce tu jugada:");
-        System.out.println(" - 0 --> piedra.");
-        System.out.println(" - 1 --> papel.");
-        System.out.println(" - 2 --> tijera.");
-        int jjugador = inputValue.nextInt();
-        int jia = jugadaIA();
+        while(jjugador != 0 || jjugador != 1 ||jjugador != 2) {
+            System.out.print("Introduce tu jugada:");
+            System.out.println(" - 0 --> piedra.");
+            System.out.println(" - 1 --> papel.");
+            System.out.println(" - 2 --> tijera.");
+            jjugador = inputValue.nextInt();
+            int jia = jugadaIA();
 
-        String resultado = calculaGanador(jjugador, jia);
+            String resultado = calculaGanador(jjugador, jia);
+        }
 
 
 
@@ -30,6 +38,51 @@ public class EjercicioIA {
         return jia;
     }
     public static String calculaGanador(int jjugador, int jia){
+        if(jjugador == 0 && jia == 0){
+            cEmpate ++;
+            return "Empate.";
+
+        }
+        if(jjugador == 0 && jia == 1){
+            cGanaIA++;
+            return "Gana la IA.";
+
+        }
+        if(jjugador == 0 && jia == 2){
+            cGanaJ++;
+            return "Gana el humano.";
+
+        }
+        if(jjugador == 1 && jia == 0){
+            cGanaJ++;
+            return "Gana el humano.";
+
+        }
+        if(jjugador == 1 && jia == 1){
+            cEmpate ++;
+            return "Empate.";
+
+        }
+        if(jjugador == 1 && jia == 2){
+            cGanaIA++;
+            return "Gana la IA.";
+
+        }
+        if(jjugador == 2 && jia == 0){
+            cGanaIA++;
+            return "Gana la IA.";
+
+        }
+        if(jjugador == 2 && jia == 1){
+            cGanaJ++;
+            return "Gana el humano.";
+
+        }
+        if(jjugador == 2 && jia == 2){
+            cEmpate ++;
+            return "Empate.";
+
+        }
 
 
     }
