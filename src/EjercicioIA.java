@@ -19,22 +19,45 @@ public class EjercicioIA {
         Scanner inputValue = new Scanner(System.in);
         int jjugador = 0;
 
-        while(jjugador != 0 || jjugador != 1 ||jjugador != 2) {
+        for (int i= 0; i<5; i++){
+
+            ronda++;
+
             System.out.print("Introduce tu jugada:");
             System.out.println(" - 0 --> piedra.");
             System.out.println(" - 1 --> papel.");
             System.out.println(" - 2 --> tijera.");
             jjugador = inputValue.nextInt();
+
+            if (jjugador == 0){
+                cPiedraJ++;
+            }
+            if (jjugador == 1){
+                cPiedraJ++;
+            }
+            if (jjugador == 2){
+                cPiedraJ++;
+            }
             int jia = jugadaIA();
 
             String resultado = calculaGanador(jjugador, jia);
         }
+        muestraEstadisticas();
 
 
 
     }
     public static int jugadaIA(){ //aleatorizarla
         int jia = (int) (Math.random() * 3);
+        if (jia == 0){
+            cPiedraIA++;
+        }
+        if (jia == 1){
+            cPapelIA++;
+        }
+        if (jia == 2){
+            cTijeraIA++;
+        }
         return jia;
     }
     public static String calculaGanador(int jjugador, int jia){
@@ -86,7 +109,7 @@ public class EjercicioIA {
 
 
     }
-    public static String muestraEstadisticas(int ronda, String jjugador, String jia){
+    public static void muestraEstadisticas(int ronda, String jjugador, String jia){
 
     }
 
