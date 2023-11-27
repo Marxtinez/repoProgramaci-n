@@ -14,9 +14,8 @@ public class TransformaImagen {
         String nombreArchivo = fEnt.getName();
         System.out.println("El archivo seleccionado es: " + nombreArchivo);
         char[] arrayNombreArchivo = nombreArchivo.toCharArray();
-
-
-            //System.out.println("El archivo seleccionado no es de tipo .bmp");
+       //if (arrayNombreArchivo[arrayNombreArchivo.length]!="p" && arrayNombreArchivo[arrayNombreArchivo.length-1]!="m" && arrayNombreArchivo[arrayNombreArchivo.length]!="p" &&  )
+          //  System.out.println("El archivo seleccionado no es de tipo .bmp");
         }
 
 
@@ -102,12 +101,15 @@ public class TransformaImagen {
             }
 
             FileOutputStream archivoAGenerar = new FileOutputStream("./archivos/penyagolosa_bn.bmp");
-            for(int i =0; i<53; i++){
+            for(int i =0; i<54; i++){
                 archivoAGenerar.write(arrayByteImagen[i]); //Introduzco los primeros 54 bytes que tienen info sobre el fichero.
 
             }
-            for (int i = 54; i< arrayByteImagen.length; i++){ //Modifico cada byte haciendo que
+            for (int i = 53; i< arrayByteImagen.length; i++){ //Modifico cada byte haciendo que
                 byteEscritura =arrayByteImagen[i];
+                for(int j= 0; i<3;i++){
+
+                }
 
                 archivoAGenerar.write(byteEscritura);
             }
@@ -118,8 +120,14 @@ public class TransformaImagen {
     }
     private String getNombreSinExtension() {
         //Devuelve el nombre del archivo f sin extensión
+        String file = f.getName(), fileNombre="";
+        char[] fileArray = file.toCharArray();
+        for (int i = 0; i < fileArray.length-4; i++) {
+            fileNombre= fileNombre + fileArray[i];
 
-        return null;
+        }
+
+        return fileNombre;
 
     }
 }
