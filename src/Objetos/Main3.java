@@ -12,7 +12,11 @@ public class Main3 {
 
         miSegmento.desplaza(4,3);
         longitudSegmento = miSegmento.longitud();
+<<<<<<< HEAD
         System.out.println("Tras desplazarlo, " + miSegmento.toString()+"y tiene una longitud de: " + longitudSegmento);
+=======
+        System.out.println("Tras desplazarlo: el segmento: " + miSegmento.toString()+", tiene una longitud de: " + longitudSegmento);
+>>>>>>> origin/master
 
     }
 }
