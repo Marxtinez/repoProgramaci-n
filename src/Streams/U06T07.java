@@ -51,7 +51,7 @@ public class U06T07 {
         int numeroEntrada = 1;
         do{
             System.out.println("Introduce número (negativo para finalizar): ");
-            numeroEntrada = scan.nextInt();
+            numeroEntrada = Integer.parseInt(scan.nextLine());
             if(numeroEntrada > 0){
                 numeros.add(numeroEntrada);
             }
@@ -63,13 +63,24 @@ public class U06T07 {
         //Ejercicio 6
         List<Person> listaPersonas = new ArrayList<>();
 
-        String dato;
-        do{
-            System.out.println("Introduce cadena: ");
-            dato = scan.nextLine();
-            listaPersonas.add()
-        }while (dato != "");
+        String nombre, apellido;
+        int anyoNacimiento;
 
+        do{
+            System.out.println("Introduce nombre: ");
+            nombre = scan.nextLine();
+            if (nombre == ""){
+                break;
+            }
+            System.out.println("Introduce apellido: ");
+            apellido = scan.nextLine();
+            System.out.println("Introduce año de nacimiento: ");
+            anyoNacimiento = Integer.parseInt(scan.nextLine());
+
+            listaPersonas.add(new Person(nombre, apellido, anyoNacimiento));
+
+        }while (nombre != "");
+        listaPersonas.stream().map(s-> s.getLastName()).distinct().sorted().forEach(s -> System.out.println(s));
 
 
 

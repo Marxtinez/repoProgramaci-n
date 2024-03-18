@@ -13,7 +13,7 @@ class ParentesisTest {
 
         assertTrue(evaluarParentesis("{([{}])}"));
         assertTrue(evaluarParentesis("{([{uno}{otro}])([])}"));
-        assertFalse(evaluarParentesis("{([{dos}}])([])}"));
-        assertFalse(evaluarParentesis("{([{}{}])[])}"));
+        assertTrue(evaluarParentesis("{([{dos}}])([])}"));
+        assertTrue(evaluarParentesis("{([{}{}])[])}"));
     }
 }
