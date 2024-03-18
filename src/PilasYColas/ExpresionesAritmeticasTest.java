@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class ExpresionesAritmeticasTest {
 
     @Test
-    void Pila() {
+    void PilaYCola() {
         ExpresionesAritmeticas e = new ExpresionesAritmeticas();
 
         assertEquals(pila("2 4 6 3 / * +"), "10");

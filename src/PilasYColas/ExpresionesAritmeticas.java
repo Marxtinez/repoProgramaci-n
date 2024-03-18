@@ -4,78 +4,88 @@ import java.util.*;
 public class ExpresionesAritmeticas {
     public static String pila(String expresion) {
         String[] elementos = expresion.split(" ");
-        Deque<Integer> pila = new ArrayDeque<>();
-        for (String elemento : elementos) {
-            if (elemento.matches("\\d+")) {
-                pila.push(Integer.parseInt(elemento));
-            } else {
-                if (pila.size() < 2) {
-                    return "ERROR";
-                } else {
-                    int operando2 = pila.pop();
-                    int operando1 = pila.pop();
-                    switch (elemento) {
-                        case "+":
-                            pila.push(operando1 + operando2);
-                            break;
-                        case "-":
-                            pila.push(operando1 - operando2);
-                            break;
-                        case "*":
-                            pila.push(operando1 * operando2);
-                            break;
-                        case "/":
-                            if (operando2 == 0) {
-                                return "ERROR";
-                            }
-                            pila.push(operando1 / operando2);
-                            break;
+        Stack<Integer> pila = new Stack<>();
+
+        try {
+            for (String elemento : elementos) {
+
+                if (elemento.equals("+")) {
+                    int n2 = pila.pop();
+                    int n1 = pila.pop();
+                    pila.push(n1 + n2);
+
+                } else if (elemento.equals("-")) {
+                    int n2 = pila.pop();
+                    int n1 = pila.pop();
+                    pila.push(n1 - n2);
+
+                } else if (elemento.equals("*")) {
+                    int n2 = pila.pop();
+                    int n1 = pila.pop();
+                    pila.push(n1 * n2);
+
+                } else if (elemento.equals("/")) {
+                    int n2 = pila.pop();
+                    int n1 = pila.pop();
+
+                    if (n2 == 0) {
+                        return "ERROR";
                     }
+                    pila.push(n1 / n2);
+
+                } else {
+
+                    pila.push(Integer.parseInt(elemento));
                 }
             }
-        }
-        if (pila.size() == 1) {
-            return Integer.toString(pila.pop());
-        } else {
+
+            return String.valueOf(pila.pop());
+
+        } catch (Exception e) {
             return "ERROR";
         }
     }
 
     public static String cola(String expresion) {
         String[] elementos = expresion.split(" ");
-        Deque<Integer> cola = new ArrayDeque<>();
-        for (String elemento : elementos) {
-            if (elemento.matches("\\d+")) {
-                cola.offer(Integer.parseInt(elemento));
-            } else {
-                if (cola.size() < 2) {
-                    return "ERROR";
-                } else {
-                    int operando1 = cola.poll();
-                    int operando2 = cola.poll();
-                    switch (elemento) {
-                        case "+":
-                            cola.offerFirst(operando1 + operando2);
-                            break;
-                        case "-":
-                            cola.offerFirst(operando1 - operando2);
-                            break;
-                        case "*":
-                            cola.offerFirst(operando1 * operando2);
-                            break;
-                        case "/":
-                            if (operando2 == 0) {
-                                return "ERROR";
-                            }
-                            cola.offerFirst(operando1 / operando2);
-                            break;
+        Queue<Integer> cola = new LinkedList<>();
+
+        try {
+            for (String elemento : elementos) {
+
+                if (elemento.equals("+")) {
+                    int n2 = cola.poll();
+                    int n1 = cola.poll();
+                    cola.add(n1 + n2);
+
+                } else if (elemento.equals("-")) {
+                    int n2 = cola.poll();
+                    int n1 = cola.poll();
+                    cola.add(n1 - n2);
+
+                } else if (elemento.equals("*")) {
+                    int n2 = cola.poll();
+                    int n1 = cola.poll();
+                    cola.add(n1 * n2);
+
+                } else if (elemento.equals("/")) {
+                    int n2 = cola.poll();
+                    int n1 = cola.poll();
+
+                    if (n2 == 0) {
+                        return "ERROR";
                     }
+                    cola.add(n1 / n2);
+
+                } else {
+                    cola.add(Integer.parseInt(elemento));
                 }
             }
-        }
-        if (cola.size() == 1) {
-            return Integer.toString(cola.poll());
-        } else {
+
+            return String.valueOf(cola.poll());
+
+        } catch (Exception e) {
+
             return "ERROR";
         }
     }
