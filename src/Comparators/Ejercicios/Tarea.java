@@ -25,7 +25,7 @@ public class Tarea implements Comparable<Tarea> {
         }else if(this.prioridad == t.prioridad){ //Si las prioridades son iguales:
             if(this.tiempo > t.getTiempo()){
                 return 1;
-            } else if (this.prioridad< t.getTiempo()) {
+            } else if (this.tiempo< t.getTiempo()) {
                 return -1;
             }
         }
