@@ -15,6 +15,9 @@ public class Localidad implements Comparable<Localidad> {
     public int getPremiosObtenidos() {
         return premiosObtenidos;
     }
+    public String toString(){
+        return "Dinero invertido: "+ this.dineroInvertido+" Premios obtenidos: "+this.premiosObtenidos;
+    }
 
     @Override
     public int compareTo(Localidad l) {

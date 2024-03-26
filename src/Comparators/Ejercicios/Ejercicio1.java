@@ -8,7 +8,7 @@ public class Ejercicio1 {
     public static Scanner scan = new Scanner(System.in);
     public static void main(String[] args) {
 
-        int seleccion = 1;
+        int seleccion;
 
        do{
            List<Tarea> tareas = introduceTareas();
